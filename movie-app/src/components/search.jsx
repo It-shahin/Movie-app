@@ -6,7 +6,7 @@ const search = ({ searchTerm, setSearchTerm }) => {
   return (
     <div className='search'>
         <div>
-            <img src="./src/assets/search.svg" alt="Search" />
+            <img src="./assets/search.svg" alt="Search" />
 
             <input
                 type="text"
