@@ -23,7 +23,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [errorMessage, SetErrorMessage] = useState('')
   const [movielist, setMovielist] = useState([]);
-  const [isloading, setIsLoading] = useState([false]);
+  const [isloading, setIsLoading] = useState(false);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
   const [trendingMovies, setTrendingMovies] = useState([]);
 
@@ -32,6 +32,11 @@ const App = () => {
   }, 500, [searchTerm]);
 
   const fetchMovies = async (query = '') => {
+    if (!API_KEY) {
+      setIsLoading(false);
+      SetErrorMessage('Movie browsing will be available once this workspace is set up. Please check back soon.');
+      return;
+    }
     setIsLoading(true);
     SetErrorMessage('');
 
